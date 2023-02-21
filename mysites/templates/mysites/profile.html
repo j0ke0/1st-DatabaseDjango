@@ -1,0 +1,17 @@
+{% extends "mysites/base.html" %}
+
+{% block content %}
+
+<ul>
+{% for text in context %}
+<strong>{{ text }}</strong><br/>
+<li>Email: {{ text.email }}</li>
+<li>Phone: {{ text.phone }}</li>
+<li>Age: {{ text.age }}</li>
+<li>Civel status: {{ text.status }}</li>
+<li>plan</li><br/>
+
+{% endfor %}
+</ul>
+
+{% endblock content %}

@@ -1,0 +1,37 @@
+{% extends 'mysites/base.html' %}
+
+
+{% block content %}
+
+<nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary mb-2 border ">
+  <div class="container-fluid"> 
+    <div class="p-2">
+      <form action= "{% url 'mysites:add_profile' %}">
+        <button class="btn btn-outline-primary"><strong>Add User Info</strong></button>
+      </form>
+    </div>
+    <div class="p-2">
+      <form action="{% url 'mysites:entry' %}">
+        <button class="btn btn-outline-primary"><strong>Add Customer</strong></button>
+      </form>
+    </div>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+  </div>
+  </div>
+</nav>
+  {% for text in form %}
+  <div class="p-1">
+    <div class="p-1 fw-semibold border "style="background-color: #cce3f7;">
+        <a>Name : 
+          <strong>{{ text.users.first_name.title }}</strong> 
+            <strong>{{ text.users.last_name.title }}</strong> 
+          </a>
+        <a>- Expire date : <strong>{{ text.expire_date }}</strong> {{ text.expire_hour }}</a> -
+          <a href="{% url 'mysites:edit_info' text.id %}"> Edit</a>
+          <a><br/>Remarks: {{text.remarks}}</a> -
+        <a href="{% url 'mysites:delete' text.id %}"> Delete</a><br/>
+      </div>
+    </div>
+  {% endfor %}
+ 
+{% endblock content %}

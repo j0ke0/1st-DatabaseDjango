@@ -1,0 +1,15 @@
+{% extends 'mysites/base.html' %}
+
+{% block content %}
+<div class ="text-center fw-semibold p-5">
+    <a>Are you sure you want to delete: {{ customer }}?</a> 
+    <a href="{% url 'mysites:info' %}">Cancel</a>
+    <br/><br/>
+    <form action="{% url 'mysites:delete' customer.id %}" method='POST'>
+        {% csrf_token %}
+        <button class="btn btn-outline-danger"><strong>Delete</strong></a>
+    </from>
+</div>
+
+
+{% endblock content %}

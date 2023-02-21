@@ -1,0 +1,21 @@
+{% extends 'mysites/base.html' %}
+
+
+{% block content %}
+<div class ="text-center fw-semibold p-5">
+    <a>Are you sure you want to delete?</a> {{customer}} <a href="{% url 'mysites:add_plan' %}">Cancel</a><br/><br/>
+
+    <form function ="{% url "mysites:delete_plan_info" customer.id %}" method="POST">
+        {%csrf_token%}
+        <button class="btn btn-outline-danger"><strong>Delete</strong></button>
+    </form>
+</div>
+
+
+
+<br/>
+{{customer.details}}<br/><br/>
+
+
+
+{% endblock content %}

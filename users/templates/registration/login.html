@@ -1,0 +1,23 @@
+{% extends "mysites/index.html" %}
+
+{% block content %}
+  
+  {% if form.errors %}
+  <div class="p-2">
+    <div class=" text-danger fw-semibold "><a>To activate your account for the first time, contact the administrator..</a></div>
+    </div>
+  </div>
+  {% endif %}
+  <div class="p-2">
+    <div class="form-group fw-semibold text-center btn btn-white border border-2 border border-primary">
+      <form method="post" action="{% url 'users:login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+      <button class="btn btn-outline-primary"><strong>Log in</strong></button>
+      <input type="hidden" name="next" 
+        value="{% url 'mysites:index' %}" />
+      </form>
+    </div>
+  </div>
+
+{% endblock content %}

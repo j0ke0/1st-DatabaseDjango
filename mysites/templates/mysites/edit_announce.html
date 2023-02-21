@@ -1,0 +1,13 @@
+{% extends 'mysites/base.html' %}
+
+{% block content %}
+<div class ="text-center ">
+    <div class="form-group border-2 fw-semibold text-center btn btn-white border border-primary">
+        <form action="" method='POST'>
+            {% csrf_token %}
+            {{form.as_p}}
+            <button class="btn btn-outline-primary"><strong>Edit</strong></a>
+        </from>
+    </div>
+</div>
+{% endblock content %}

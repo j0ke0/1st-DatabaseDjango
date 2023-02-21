@@ -1,0 +1,22 @@
+{% extends "mysites/base.html" %}
+
+{% block content %}
+
+<div class ="text-center fw-semibold p-4">
+{{user.first_name.title}} {{user.last_name.title}} : {{user.is_active}}<br/><br/>
+<form action= "{% url 'users:activate_acc' user.id %}" method= "POST">
+    {% csrf_token %}
+    <button class="btn btn-outline-success"><strong>Activate</strong></button>
+</form> 
+    <div class ="text-center p-3">
+        <form action= "{% url 'users:activate_dec' user.id %}" method= "POST">
+            {% csrf_token %}
+            <button class="btn btn-outline-danger"><strong>Deactivate</strong></button>
+        </form>
+    </div> 
+</div>
+
+
+
+
+{% endblock content %}

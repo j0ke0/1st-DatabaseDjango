@@ -1,0 +1,48 @@
+{% extends 'mysites/index.html' %}
+
+  {%block content%}
+   {% if user.is_authenticated %}
+      {% endif %}
+     <br/>
+
+    {%for forms in form %}
+    {% if user == forms.users %}
+    <div class="p-2 ">
+      <div class="p-1 fw-semibold border border-white "style="background-color: #cce3f7;">
+        <a> Name: {{forms.users.first_name.title}} {{forms.users.last_name.title}} </a><br/>
+      </div>
+        <div class="p-1 fw-semibold border border-white "style="background-color: #cce3f7;">
+          <a> Email: {{ forms.users.email }}</a><br/>
+        </div>
+        <div class="p-1 fw-semibold border border-white "style="background-color: #cce3f7;">
+          <a> Plan type: {{forms.plan.plan_name.title}}</a><br/>
+        </div>
+        <div class="p-1 fw-semibold border border-white "style="background-color: #cce3f7;">
+          <a> Plan expiration: <strong>{{ forms.expire_date }}</strong> {{ forms.expire_hour }}</a><br/>
+        </div>
+    </div>
+     {% endif %}
+    {% endfor %}<br/><br/>
+     
+<div class="text-primary text-center ">
+  <div class=" fw-semibold m-5 border border-white "style="background-color: background-color: #0269c2;">
+    <div class="text-success text-center fs-4">
+    <a>Data Plan Offers:</a>
+    </div>
+    {%for forks in fork %}
+    <div class=" m-5">
+      <div class="  fw-semibold border border-white "style="background-color: #cce3f7;">
+      <strong>{{forks.plan.plan_name}}</strong><br/>
+      {{forks.detail}}<br/>
+      {{forks.sig_date}}
+      </div>
+    </div>
+    {%endfor%}
+  </div>
+</div>
+  
+
+  {%endblock content%}
+   
+
+    

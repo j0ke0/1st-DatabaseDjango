@@ -1,0 +1,14 @@
+{% extends 'mysites/base.html' %}
+
+{% block content %}
+<div class ="text-center fw-semibold p-5">
+    <a> Are you sure you want to delete?</a> <strong>{{files}}</strong> <a href="{% url 'mysites:announcement' %}">Cancel</a>
+    <br/><br/>
+    <form action="{% url 'mysites:del_announce' files.id %}" method='POST'>
+        {% csrf_token %}
+        <button class="btn btn-outline-danger"><strong>Delete</strong></a>
+    </form>
+</div>
+
+
+{% endblock content %}

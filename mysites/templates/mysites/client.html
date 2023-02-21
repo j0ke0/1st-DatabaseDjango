@@ -1,0 +1,21 @@
+{% extends "mysites/base.html" %}
+
+{% block content %}
+<div class="d-grid gap-2">
+    <div class="p-2 fw-semibold border "style="border-white">
+        {% for text in profile %}
+        <div class="d-grid gap-1">
+            <div class="p-1 fw-semibold border "style="background-color: #cce3f7;">
+            <a>Name: {{ text.first_name.title }} {{ text.last_name.title }} - 
+            Email: {{ text.email }}</a><br/>
+            <a><a>Registration confrim: 
+            <a href="{% url 'users:activate_acc' text.id %}">{{ text.is_active }}</a></a> 
+        <a/><br/>
+            </div>
+            </div>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock content %}

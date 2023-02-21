@@ -1,0 +1,15 @@
+{% extends "mysites/index.html" %}
+
+{% block content %}
+<div class="p-2">
+    <div class="form-group fw-semibold text-center btn btn-white border border-2 border border-primary">
+        <form method="post" action="{% url 'users:register' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-outline-primary"><strong>Register</strong></button>
+            <input type="hidden" name="next" value="{% url 'users:login' %}" />
+        </form>
+    </div>
+</div>
+ 
+{% endblock content %}

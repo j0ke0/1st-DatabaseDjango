@@ -1,0 +1,37 @@
+ {% extends 'mysites/index.html' %}
+
+{%block content%}
+
+<div class="p-2 ">
+  <div class="p-1 fw-semibold border border-white "style="background-color: #cce3f7;">
+    {% if user.is_authenticated %}
+        Hello, {{ user.username }}.
+      {% endif %}
+      {%for forks in fork %}
+        <a href="{% url "mysites:portfolio" forks.users_id %}">View Your Profile</a>
+      {%endfor%}
+  </div>
+</div>
+<br/>
+<br/>
+<div class="text-danger text-center fs-4">
+ <a> Announcements</a>
+  </div>
+<div class=" fw-semibold border border-white "style="background-color: #e6f1fb;">
+  <div class="p-1 m-5 text-center ">
+  {% for forms in form %}
+    <div class="p-1 m-5 text-center ">
+      <div class=" fw-semibold border border-white "style="background-color: #cce3f7;">
+      <ul>{{ forms.title.title }}</ul>
+        {{ forms.announcement }}
+          <div class="p-1 border ">
+          Date posted: {{ forms.date_added }}
+        </div>
+      </div>
+    </div>
+      {% endfor %}
+  </div>
+</div>
+    
+      {%endblock content%}
+   
