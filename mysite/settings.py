@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-&=zk8yp%lk2s)a*r733w9vc^tp%%7&_7^blp!*e0m#0v19=klx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['jokeodatabase.up.railway.app']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
